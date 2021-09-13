@@ -9,7 +9,13 @@ const router = express.Router();
 
 /* GET users listing. */
 router.get('/', authenticate.verifyUser, authenticate.verifyAdmin, function (req, res, next) {
-  return (req.user);
+  User.find()
+    .then(user => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(user);
+    })
+    .catch(err => next(err));
 });
 
 router.post('/signup', (req, res) => {
