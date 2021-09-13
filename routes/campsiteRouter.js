@@ -175,8 +175,8 @@ campsiteRouter.route('/:campsiteId/comments/:commentId')
             .then(campsite => {
                 //let currentComment =  campsite.comments.id(req.params.commentId;
                 if (campsite && campsite.comments.id(req.params.commentId)) {
-                    let loggedInUser = req.user._id;
-                    let currentCommentAuthor = currentComment;
+                    //let loggedInUser = req.user._id;
+                    // let currentCommentAuthor = currentComment;
                     if (req.body.rating) {
                         campsite.comments.id(req.params.commentId).rating = req.body.rating;
                     }
